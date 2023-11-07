@@ -9,7 +9,7 @@ import (
 
 func main() {
 	router := gin.Default()
-	dns := "root:000000@tcp(localhost:3306)/blogger?parseTime=true"
+	dns := "root:AiiCi123@tcp(bmysql:3306)/blogger?parseTime=true"
 	err := db.Init(dns)
 	if err != nil {
 		panic(err)
