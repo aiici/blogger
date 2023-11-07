@@ -1,0 +1,25 @@
+version: '3.0'
+networks:
+  net:
+services:
+  bmysql:
+    image: mariadb:latest
+    container_name: bmysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: "AiiCi123"
+    expose: 
+    - 3306
+    networks:
+      - net
+    volumes:
+      - ./blog.sql:/docker-entrypoint-initdb.d/blog.sql
+  blog:
+    build: 
+      context: .
+    container_name: blog
+    ports:
+      - "9494:9494"
+    networks:
+      - net
+    depends_on:
+      - bmysql
