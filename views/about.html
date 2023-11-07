@@ -1,0 +1,87 @@
+{{ define "views/about.html" }}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<title>关于_AiiCi个人博客 全栈工程师</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
+<link href="/static/css/base.css" rel="stylesheet">
+<link href="/static/css/index.css" rel="stylesheet">
+<link href="/static/css/m.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script>
+window.onload = function ()
+{
+	var oH2 = document.getElementsByTagName("h2")[0];
+	var oUl = document.getElementsByTagName("ul")[0];
+	oH2.onclick = function ()
+	{
+		var style = oUl.style;
+		style.display = style.display == "block" ? "none" : "block";
+		oH2.className = style.display == "block" ? "open" : ""
+	}
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="tophead">
+    <div class="logo"><a href="/">AiiCi个人博客</a></div>
+    
+    <nav class="topnav" id="topnav">
+        <ul>
+          <li><a href="/">网站首页</a></li>
+          <li><a href="/article/new/">投稿</a></li>
+          <li><a href="/leave/new/">留言</a></li>
+          <li><a href="/about/me/">关于我</a></li>
+        </ul>
+      </nav>
+  </div>
+</header>
+<article>
+  <h1 class="t_nav">
+    <span>像“草根”一样，紧贴着地面，低调的存在，冬去春来，枯荣无恙。</span>
+    <a href="/" class="n1">网站首页</a>
+    <a href="/about/me/" class="n2">关于我</a>
+  </h1>
+  <div class="ab_box">
+    <div class="leftbox">
+      <div class="newsview">
+        <div class="news_infos">
+          <p>我是一个自我驱动的工程师，喜欢探索新技术和工具，以保持在不断演变的行业中的竞争力。<br />
+            <br />
+            前端开发: 我在HTML、CSS和JavaScript方面有深厚的知识，能够构建美观、响应式和交互式的前端界面。我熟练使用现代的前端框架和库，如React、Vue.js和Angular。<br />
+            <br />
+            后端开发: 我精通多种后端编程语言，包括PHP、Node.js、Goland、Python和Java。我可以构建高性能的后端服务，处理数据存储、身份验证和API开发等任务。<br />
+            <br />
+            数据库管理: 我具备数据库设计和管理的经验，包括SQL和NoSQL数据库，如MySQL、MongoDB和Redis。<br />
+            <br />
+            云平台: 我熟悉云计算平台，如AWS、Azure和华为 阿里 腾讯云，能够部署和扩展Web应用程序。<br />
+             <br />
+            DevOps: 我了解CI/CD流程，自动化部署和容器化，以确保持续集成和持续交付的流畅运行。<br />
+          <h2>About my blog</h2>
+        </div>
+      </div>
+    </div>
+    <div class="rightbox">
+      <div class="aboutme">
+        <h2 class="hometitle">关于我</h2>
+        <div class="avatar"> <img src="/static/images/avatar.jpg"> </div>
+        <div class="ab_con">
+          <p>网名：AiiCi</p>
+          <p>职业：全栈工程师 </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<footer>
+  <p>Design by <a href="/">AiiCi个人博客</a></p>
+</footer>
+<script src="/static/js/nav.js"></script>
+</body>
+</html>
+{{end}}

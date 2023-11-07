@@ -1,0 +1,171 @@
+{{ define "views/gbook.html" }}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<title>留言</title>
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/static/css/base.css" rel="stylesheet">
+<link href="/static/css/index.css" rel="stylesheet">
+<link href="/static/css/m.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script>
+window.onload = function ()
+{
+	var oH2 = document.getElementsByTagName("h2")[0];
+	var oUl = document.getElementsByTagName("ul")[0];
+	oH2.onclick = function ()
+	{
+		var style = oUl.style;
+		style.display = style.display == "block" ? "none" : "block";
+		oH2.className = style.display == "block" ? "open" : ""
+	}
+}
+</script>
+</head>
+<body><header>
+    <div class="tophead">
+      <div class="logo"><a href="/">AiiCi个人博客</a></div>
+     
+      <nav class="topnav" id="topnav">
+          <ul>
+            <li><a href="/">网站首页</a></li>
+            <li><a href="/article/new/">投稿</a></li>
+            <li><a href="/leave/new/">留言</a></li>
+            <li><a href="/about/me/">关于我</a></li>
+          </ul>
+        </nav>
+    </div>
+  </header>
+<article>
+  <h1 class="t_nav">
+    <span>像“草根”一样，紧贴着地面，低调的存在，冬去春来，枯荣无恙。</span>
+    <a href="/" class="n1">网站首页</a>
+    <a href="/" class="n2">留言</a>
+  </h1>
+  <div class="ab_box">
+      <div class="blogs">
+          {{range .}}
+          <li> 
+            <h3 class="blogtitle">作者: {{.Username}}</h3>
+            <div class="bloginfo">
+              <p>{{.Content}}</p>
+            </div>
+            <div class="autor">
+              
+              <span class="dtime">{{.CreateTime}}</span>
+        
+              <span class="readmore">{{.Email}}</div>
+          </li>
+          {{end}}
+      </div>
+      <style>
+          .comment-form {
+              margin: 0 auto;
+              width: 80%;
+              padding: 20px;
+              background-color: #f9f9f9;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+          }
+
+          .comment-notes {
+              font-size: 14px;
+          }
+
+          .form-group {
+              margin: 10px 0;
+          }
+
+          .form-group label {
+              display: block;
+              font-weight: bold;
+          }
+
+          .form-group input[type="text"],
+          .form-group input[type="email"],
+          .form-group textarea {
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              margin: 5px 0;
+          }
+
+          .form-submit {
+              margin-top: 10px;
+          }
+
+          .comment-form input[type="submit"] {
+              background-color: #007bff;
+              color: #fff;
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+          }
+
+          .comment-form input[type="submit"]:hover {
+              background-color: #0056b3;
+          }
+      </style>
+    <div class="leftbox">
+      <div class="newsview">
+        <div class="news_infos"> 
+            
+            <div class="register-container container">
+              
+                <div class="row">
+                    <div class="register span6">
+                        <form action="/leave/submit/" method="post" class="comment-form">
+                            <p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span> 必填项已用<span class="required">*</span>标注</p>
+
+                            <div class="form-group">
+                                <label for="comment">留言<span class="required">*</span></label>
+                                <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="author">姓名 <span class="required">*</span></label>
+                                <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">电子邮件 <span class="required">*</span></label>
+                                <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required">
+                            </div>
+
+                            <p class="form-submit">
+                                <input name="submit" type="submit" id="submit" class="submit" value="发表留言">
+                                <input type="hidden" name="comment_post_ID" value="2" id="comment_post_ID">
+                                <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="rightbox">
+      <div class="aboutme">
+        <h2 class="hometitle">关于我</h2>
+        <div class="avatar"> <img src="/static/images/avatar.jpg"> </div>
+        <div class="ab_con">
+          <p>网名：AiiCi</p>
+          <p>职业：全栈工程师 </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<footer>
+  <p>Design by <a href="/">AiiCi个人博客</a></p>
+</footer>
+<script src="/static/js/nav.js"></script>
+</body>
+</html>
+{{end}}
